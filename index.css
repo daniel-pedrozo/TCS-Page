@@ -1,19 +1,21 @@
+/* Reset de margens e preenchimentos para o body e html */
 body,
 html {
     margin: 0;
     padding: 0;
     height: 100%;
     background-color: #860111;
-    font-family: 'Montserrat', sans-serif; /* Define Montserrat como a fonte padrão para o corpo do documento */
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
 
+/* Estilo para todos os títulos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'League Spartan', sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'League Spartan', sans-serif; /* Define League Spartan como a fonte para os títulos */
 }
 
 header {
@@ -25,7 +27,6 @@ header {
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     border-bottom: 1px solid #080808;
-    /* Adiciona borda na parte inferior do nav */
     padding-bottom: 5px;
 }
 
@@ -34,10 +35,14 @@ header .logo img:hover {
     transform: scale(1.05); 
 }
 
+header nav ul li a{
+    transition: color 0.3s ease;
+}
+
 /* Estilo de hover para os links */
 header nav ul li a:hover {
-    color: #860111; /* Vermelho */
-    transition: color 0.3s ease; /* Transição suave da cor */
+    color: #860111;
+    transition: color 0.3s ease;
 }
 
 .logo {
@@ -56,7 +61,6 @@ nav {
     justify-content: center;
     align-items: center;
     padding-right: 150px;
-    
 }
 
 nav ul {
@@ -76,28 +80,33 @@ nav ul li a {
     font-size: 30px;
 }
 
+.infodiv{
+    transition: transform 0.3s ease;
+}
+
+.infodiv a {
+    color: inherit; /* Mantém a cor do texto herdada */
+    text-decoration: none; /* Remove a decoração de link (a linha) */
+    font-size: 35px; /* Define o tamanho da fonte */
+}
+
+/* Estilos para o conteúdo */
 .content {
     display: flex;
     flex-direction: column;
-    /* Ajusta a direção do layout para coluna */
     justify-content: space-between;
-    /* Distribui o espaço entre as seções */
     height: calc(100% - 50px);
-    /* Subtrai a altura do cabeçalho */
     padding: 20px;
 }
 
 .container {
-    display: inline;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     margin-top: 25px;
     margin-bottom: 25px;
@@ -105,43 +114,46 @@ nav ul li a {
 
 .white-bg {
     background-color: #f8f8ff;
-    color: #080808 !important;
-    height: 80%;
+    color: #080808;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
     margin-left: 50px;
     margin-right: 50px;
-}
-
-.white-bg h2 {
-    font-size: 50px;
-}
-
-.white-bg p {
-    font-size: 25px;
+    padding-bottom: 3%;
+    padding-top: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .black-bg {
     background-color: #080808;
-    color: #f8f8ff !important;
-    height: 80%;
+    color: #f8f8ff;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
     margin-left: 50px;
     margin-right: 50px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
-.black-bg h2 {
+.white-bg h2, .black-bg h2 {
     font-size: 50px;
 }
 
-.black-bg p {
+.white-bg p, .black-bg p {
     font-size: 25px;
 }
 
-.section h2 {
-    margin-bottom: 10px;
-    color: #860111;
+/* Estilos para o rodapé */
+footer {
+    background-color: #f8f8ff;
+    color: #080808;
+    text-align: center;
+    padding: 20px 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
 [data-component="slideshow"] .slide {
@@ -154,20 +166,48 @@ nav ul li a {
 
 [data-component="slideshow"] .slide img {
     max-width: 50%;
-    /* Define a largura máxima da imagem como 100% do contêiner */
     height: auto;
-    /* Permite que a altura seja ajustada automaticamente para manter a proporção */
-
 }
 
-.divefundo {
-    background-color: #080808;
-    /* Define a cor de fundo como preto com 50% de transparência */
-    border-radius: 15px;
-    /* Arredonda as bordas */
-    padding: 20px;
-    /* Adiciona preenchimento interno para evitar que o conteúdo toque nas bordas arredondadas */
-    margin-top: 20px;
+/* Regras de mídia para tornar o cabeçalho responsivo */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo img {
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+/* Regras de mídia para tornar o conteúdo responsivo */
+@media screen and (max-width: 768px) {
+    .white-bg, .black-bg {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .white-bg h2, .black-bg h2 {
+        font-size: 30px;
+    }
+
+    .white-bg p, .black-bg p {
+        font-size: 20px;
+    }
+}
+
+.divefundo{
     transition: transform 0.3s ease;
 }
 
@@ -185,42 +225,11 @@ nav ul li a {
     transition: transform 0.3s ease; /* Transição suave de escala */
 }
 
-.valores {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.infodiv {
-    display: inline;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    margin-left: 2%;
-    margin-right: 2%;
-    transition: transform 0.3s ease;
-}
-
 .infodiv:hover{
     transform: scale(1.05); /* Aumenta a escala em 5% */
     transition: transform 0.3s ease; /* Transição suave de escala */
 }
 
-.infodiv a {
-    color: inherit; /* Mantém a cor do texto herdada */
-    text-decoration: none; /* Remove a decoração de link (a linha) */
-    font-size: 35px; /* Define o tamanho da fonte */
-}
-
 .infodiv a:hover {
     color: #860111; /* Muda a cor do texto para vermelho no hover */
-}
-
-footer {
-    background-color: #f8f8ff; /* Fundo branco */
-    color: #080808; /* Texto preto */
-    text-align: center; /* Centraliza o texto */
-    padding: 20px 0; /* Adiciona espaçamento interno */
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
 }
